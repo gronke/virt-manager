@@ -3479,7 +3479,9 @@ class ParserNetwork(VirtCLIParser):
     aliases = {
         "driver.name": "driver_name",
         "driver.queues": "driver_queues",
-        "filterref.filter": "filterref",
+        "filterref.filter": "filterref_filter",
+        "filterref.parameter.name": "filterref_name",
+        "filterref.parameter.value": "filterref_value",
         "link.state": "link_state",
         "mac.address": "mac",
         "model.type": "model",
@@ -3584,7 +3586,9 @@ class ParserNetwork(VirtCLIParser):
         cls.add_arg("target.dev", "target_dev")
         cls.add_arg("model.type", "model")
         cls.add_arg("mac.address", "macaddr", cb=cls.set_mac_cb)
-        cls.add_arg("filterref.filter", "filterref")
+        cls.add_arg("filterref.filter", "filterref.filter")
+        cls.add_arg("filterref.parameter.name", "filterref.name")
+        cls.add_arg("filterref.parameter.value", "filterref.value")
         cls.add_arg("link.state", "link_state", cb=cls.set_link_state)
 
         cls.add_arg("driver.name", "driver_name")

@@ -122,6 +122,14 @@ class _VirtualPort(XMLBuilder):
     interfaceid = XMLProperty("./parameters/@interfaceid")
 
 
+class _Filterref(XMLBuilder):
+    XML_NAME = "filterref"
+
+    filter = XMLProperty("./@filter")
+    name = XMLProperty("./parameter/@name")
+    value = XMLProperty("./parameter/@value")
+
+
 class DeviceInterface(Device):
     XML_NAME = "interface"
 
@@ -239,7 +247,7 @@ class DeviceInterface(Device):
     portgroup = XMLProperty("./source/@portgroup")
     model = XMLProperty("./model/@type")
     target_dev = XMLProperty("./target/@dev")
-    filterref = XMLProperty("./filterref/@filter")
+    filterref = XMLChildProperty(_Filterref, is_single=True)
     link_state = XMLProperty("./link/@state")
 
     driver_name = XMLProperty("./driver/@name")
